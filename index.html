@@ -9,25 +9,25 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        min-height: 100vh;
+        justify-content: flex-start; /* Mengubah ke flex-start agar konten berada di atas */
+        min-height: 100vh; /* Memastikan tinggi minimum body 100vh */
         margin: 0;
-        padding: 20px; /* Memberikan padding untuk tampilan lebih baik di perangkat kecil */
+        padding: 20px;
         background: linear-gradient(135deg, #ffcc00, #ff6699);
         font-family: Arial, sans-serif;
-        position: relative;
-        overflow: hidden;
-        text-align: center; /* Menengahkan teks */
+        text-align: center; /* Rata tengah untuk semua teks */
       }
 
       h1 {
         color: #fff;
         animation: fadeIn 1s;
+        font-size: 2.5em; /* Ukuran font lebih besar untuk judul */
       }
 
       h3 {
         color: #fff;
         animation: fadeIn 1s;
+        font-size: 1.5em; /* Ukuran font untuk subjudul */
       }
 
       p {
@@ -36,7 +36,8 @@
         opacity: 0;
         transform: translateY(-20px);
         animation-delay: 0.5s;
-        margin: 10px 0; /* Memberikan jarak di antara paragraf */
+        margin: 10px 0; /* Jarak antar paragraf */
+        font-size: 1.2em; /* Ukuran font untuk paragraf */
       }
 
       button {
@@ -66,7 +67,8 @@
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.5s, transform 0.5s;
-        text-align: left; /* Menjaga teks di dalam kejutan tetap rata kiri */
+        text-align: left; /* Rata kiri untuk isi kejutan */
+        font-size: 1.1em; /* Ukuran font untuk isi kejutan */
       }
 
       @keyframes fadeIn {
