@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Ulang Tahun!</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffcc00, #ff6699);
+        font-family: Arial, sans-serif;
+        position: relative;
+        overflow: hidden;
+      }
+      h1 {
+        color: #fff;
+        animation: fadeIn 1s;
+      }
+      h3 {
+        color: #fff;
+        animation: fadeIn 1s;
+      }
+      p {
+        color: #000;
+        animation: slideIn 1s forwards;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation-delay: 0.5s;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #ff5733;
+        color: white;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      button:hover {
+        background-color: #ff704d;
+        transform: scale(1.1);
+      }
+      .surprise {
+        display: none;
+        margin-top: 10px; /* Mengurangi jarak di antara kejutan */
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #b8daff;
+        border-radius: 5px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s, transform 0.5s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Ulang Tahun Ke-20 Umi Adhiyah</h1>
+    <h3>Semoga hari ini penuh kebahagiaan</h3>
+    <p>Penasaran gak nih, ucapan ini dari siapa?</p>
+    <p>⬇️⬇️⬇️Klik tombol dibawah ya⬇️⬇️⬇️</p>
+
+    <button id="button1" onclick="showSurprise('surprise1', 'button2')">
+      Klik ini
+    </button>
+    <div id="surprise1" class="surprise">❤️pastinya dari mamas dong❤️</div>
+    <button
+      id="button2"
+      style="display: none"
+      onclick="showSurprise('surprise2', 'button3')"
+    >
+      Ada lagi loh, Coba pencet
+    </button>
+    <div id="surprise2" class="surprise">
+      Hai teman-teman, lihat ini! tuan putri udah sampai sini loh, ayo kita
+      sambut tuan putri kita
+    </div>
+
+    <button
+      id="button3"
+      style="display: none"
+      onclick="showSurprise('surprise3', '')"
+    >
+      Silahkan tekan ini tuan putri
+    </button>
+    <div id="surprise3" class="surprise">
+      Selamat Ulang Tahun, Sayangku! <br />
+      Yay, hari ini adalah hari spesial buat kamu! 🎉 Aku sangat bersyukur bisa
+      ada di sampingmu dan merayakan hari istimewa ini. <br />
+      Kamu adalah orang yang paling berarti dalam hidupku, dan setiap detik
+      bersamamu adalah petualangan yang luar biasa. <br />
+      Semoga di tahun baru ini, semua impian dan harapanmu bisa terwujud. Ingat,
+      aku selalu ada untuk mendukungmu, tidak peduli apa pun yang terjadi.
+      <br />
+      Teruslah bersinar dan menjadi dirimu yang paling hebat! Aku berharap hari
+      ini dipenuhi dengan tawa, cinta, dan kebahagiaan. <br />
+      ❤️ Mari kita buat momen-momen indah bersama, karena kamu layak mendapatkan
+      semua yang terbaik. <br />
+      Sekali lagi, selamat ulang tahun, sayang! Aku cinta kamu lebih dari
+      kata-kata bisa ungkapkan. Semoga tahun ini membawa banyak kebahagiaan dan
+      kejutan manis untukmu!
+    </div>
+
+    <script>
+      function showSurprise(surpriseId, nextButtonId) {
+        const selectedSurprise = document.getElementById(surpriseId);
+        selectedSurprise.style.display = "block"; // Tampilkan kejutan yang dipilih
+        setTimeout(() => {
+          selectedSurprise.style.opacity = 1; // Fade in
+          selectedSurprise.style.transform = "translateY(0)"; // Animasi muncul
+        }, 10);
+
+        // Sembunyikan tombol yang aktif dan tampilkan tombol berikutnya
+        const currentButton = document.getElementById(nextButtonId);
+        if (currentButton) {
+          currentButton.style.display = "block"; // Tampilkan tombol berikutnya
+        }
+      }
+
+      function createFlyingEmoji(emoji) {
+        const flyingEmoji = document.createElement("div");
+        flyingEmoji.innerText = emoji;
+        flyingEmoji.style.position = "absolute";
+        flyingEmoji.style.fontSize = "24px";
+        flyingEmoji.style.pointerEvents = "none";
+        flyingEmoji.style.opacity = "1";
+        flyingEmoji.style.transition = "transform 2s ease, opacity 2s ease";
+        document.body.appendChild(flyingEmoji);
+        const x = Math.random() * window.innerWidth;
+        flyingEmoji.style.left = `${x}px`;
+        flyingEmoji.style.top = `${window.innerHeight}px`;
+        setTimeout(() => {
+          flyingEmoji.style.transform = `translate(${
+            (Math.random() - 0.5) * 200
+          }px, -${window.innerHeight + 100}px)`;
+          flyingEmoji.style.opacity = "0";
+        }, 10);
+        setTimeout(() => {
+          flyingEmoji.remove();
+        }, 2000);
+      }
+
+      // Buat animasi emoji setiap setengah detik
+      setInterval(() => {
+        const emojis = ["🎉", "🎈", "🎁", "🎊", "✨", "🌟"];
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        createFlyingEmoji(randomEmoji);
+      }, 500);
+    </script>
+  </body>
+</html>
